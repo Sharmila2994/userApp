@@ -1,0 +1,39 @@
+<p>
+  search works!
+</p>
+<div class="col-md-12">
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4">
+    <input list="userList" name="userList" (change)="finduser(selecteduser)" [(ngModel)]="selecteduser">
+    <datalist id="userList">
+      <option *ngFor="let userInfo of userDetails" (click)="onSortChange(userInfo)" value="{{userInfo.name.first+' ' + userInfo.name.last}}">
+        {{userInfo}}
+    </datalist>
+    <input type="button" (click)="getDetails(userInfo)" value="Search User"> {{user|json}} {{userInfo}}
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+
+<div class="card">
+  <img src="img.jpg" alt="John" style="width:100%">
+  <h1>John Doe</h1>
+  <p class="title">CEO & Founder, Example</p>
+  <p>Harvard University</p>
+  <a href="#">
+    <i class="fa fa-dribbble"></i>
+  </a>
+  <a href="#">
+    <i class="fa fa-twitter"></i>
+  </a>
+  <a href="#">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  <a href="#">
+    <i class="fa fa-facebook"></i>
+  </a>
+  <p>
+    <button>Contact</button>
+  </p>
+</div>
