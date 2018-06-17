@@ -10,6 +10,7 @@ import { element } from 'protractor';
 export class SearchComponent implements OnInit {
   public userDetails: any;
   public user: any;
+  public uid : boolean;
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
@@ -18,14 +19,13 @@ export class SearchComponent implements OnInit {
       this.userDetails = data.results;
     }, error => {
       console.log(error);
-
     })
   }
-  onSortChange(e) {
-    debugger;
-    console.log(e.target.value);
-  }
+
   finduser(selecteduser) {
+
+    selecteduser != "" ?this.uid = true :this.uid = false;
+    
     // this.userDetails.fo
     this.userDetails.forEach(element => {
       // debugger;
@@ -36,8 +36,5 @@ export class SearchComponent implements OnInit {
       }
     });
   }
-  getDetails(id) {
-    debugger;
-
-  }
+ 
 }

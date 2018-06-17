@@ -1,39 +1,96 @@
-<p>
-  search works!
-</p>
-<div class="col-md-12">
-  <div class="col-md-4"></div>
+<div class="col-md-12 search-body">
+  <div>
+    <form>
+      <div class="form-group">
+        <div class="col-md-6">
+          <label class="sslabel col-md-4">Select User </label>
+          <div class="col-md-6">
+            <input class="form-control" list="userList" name="userList" [(ngModel)]="selecteduser">
+            <datalist id="userList">
+              <option *ngFor="let userInfo of userDetails" value="{{userInfo.name.first+' ' + userInfo.name.last}}">
 
-  <div class="col-md-4">
-    <input list="userList" name="userList" (change)="finduser(selecteduser)" [(ngModel)]="selecteduser">
-    <datalist id="userList">
-      <option *ngFor="let userInfo of userDetails" (click)="onSortChange(userInfo)" value="{{userInfo.name.first+' ' + userInfo.name.last}}">
-        {{userInfo}}
-    </datalist>
-    <input type="button" (click)="getDetails(userInfo)" value="Search User"> {{user|json}} {{userInfo}}
+            </datalist>
+          </div>
+          <div class="col-md-2">
+            <input type="button" class="btn btn-success" (click)="finduser(selecteduser)" value="Search User">
+
+          </div>
+        </div>
+
+      </div>
+    </form>
+
   </div>
-  <div class="col-md-4"></div>
-</div>
 
 
-<div class="card">
-  <img src="img.jpg" alt="John" style="width:100%">
-  <h1>John Doe</h1>
-  <p class="title">CEO & Founder, Example</p>
-  <p>Harvard University</p>
-  <a href="#">
-    <i class="fa fa-dribbble"></i>
-  </a>
-  <a href="#">
-    <i class="fa fa-twitter"></i>
-  </a>
-  <a href="#">
-    <i class="fa fa-linkedin"></i>
-  </a>
-  <a href="#">
-    <i class="fa fa-facebook"></i>
-  </a>
-  <p>
-    <!-- <button>Contact</button> -->
-  </p>
+  <div *ngIf="uid" [ngClass]="{'user-profile': uid}">
+    <h2 class="title">Hi {{user.name.first+" "+user.name.last}}!!</h2>
+    <div class="user-detail">
+      <div class="col-md-4">
+        <img src={{user.picture.large}} alt="John" height="200px;" style="width:100%">
+      </div>
+      <div class="col-md-6">
+        <div class="">
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">Name</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.name.title +' '+user.name.first +' '+user.name.last">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">Email Id</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.email">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">State</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.location.state">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">City</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.location.city">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">Street</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.location.street">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">Post Code</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.location.postcode">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">DOB</label>
+            <div class="col-md-6">
+              <input type="date" disabled class="form-control" [value]="user.dob | date:'yyyy-MM-dd'">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">Phone</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.phone">
+            </div>
+          </div>
+          <div class="row form-group">
+            <label class="col-md-4 sslabel">Cell</label>
+            <div class="col-md-6">
+              <input type="input" disabled class="form-control" [(ngModel)]="user.cell">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- <br> {{user|json}} {{userInfo}} -->
+
+  </div>
 </div>
