@@ -12,7 +12,7 @@
 }
 
 .user-detail{
-    display: flex;
+    flex-direction: row;
 }
 .user-profile{
     background-color: lightgrey;

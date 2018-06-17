@@ -26,61 +26,68 @@
   <div *ngIf="uid" [ngClass]="{'user-profile': uid}">
     <h2 class="title">Hi {{user.name.first+" "+user.name.last}}!!</h2>
     <div class="user-detail">
-      <div class="col-md-4">
-        <img src={{user.picture.large}} alt="John" height="200px;" style="width:100%">
+      <div class="col-md-2">
+        <img src={{user.picture.large}} alt="John" height="200px;">
       </div>
       <div class="col-md-6">
         <div class="">
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">Name</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.name.title +' '+user.name.first +' '+user.name.last">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">Email Id</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.email">
             </div>
           </div>
+          <div class="col-md-12 form-group">
+            <label class="col-md-4 sslabel">Gender</label>
+            <div class="col-md-6">
+              <input type="radio" name='gender' value='male' [(ngModel)]='user.gender'>Male
+              <input type="radio" name='gender' value='female' [(ngModel)]='user.gender'>Female
+            </div>
+          </div>
 
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">State</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.location.state">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">City</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.location.city">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">Street</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.location.street">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">Post Code</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.location.postcode">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">DOB</label>
             <div class="col-md-6">
               <input type="date" disabled class="form-control" [value]="user.dob | date:'yyyy-MM-dd'">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">Phone</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.phone">
             </div>
           </div>
-          <div class="row form-group">
+          <div class="col-md-12 form-group">
             <label class="col-md-4 sslabel">Cell</label>
             <div class="col-md-6">
               <input type="input" disabled class="form-control" [(ngModel)]="user.cell">
